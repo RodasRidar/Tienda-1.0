@@ -1,0 +1,75 @@
+package cibertec;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+
+import javax.swing.JScrollPane;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+
+public class ListarColchon extends JDialog implements ActionListener {
+	private JButton btnCerrar;
+	private JButton btnListar;
+	private JScrollPane scrollPane;
+	private JTextArea txtS;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			ListarColchon dialog = new ListarColchon();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ListarColchon() {
+		setTitle("Listado de colchones");
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(null);
+
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(86, 227, 89, 23);
+		getContentPane().add(btnCerrar);
+
+		btnListar = new JButton("Listar");
+		btnListar.addActionListener(this);
+		btnListar.setBounds(260, 227, 89, 23);
+		getContentPane().add(btnListar);
+
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 414, 202);
+		getContentPane().add(scrollPane);
+
+		txtS = new JTextArea();
+		scrollPane.setViewportView(txtS);
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnListar) {
+			actionPerformedBtnNewButton_1(e);
+		}
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnNewButton(e);
+		}
+	}
+
+	protected void actionPerformedBtnNewButton(ActionEvent e) {
+		dispose();
+	}
+
+	protected void actionPerformedBtnNewButton_1(ActionEvent e) {
+		// salida de datos
+		txtS.setText("Listado de colchones:");
+	}
+}
